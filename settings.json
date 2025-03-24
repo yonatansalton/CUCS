@@ -1,0 +1,47 @@
+
+{
+  "output_dir": "output",
+  "output_file": "output/characters.json",
+  "buffer_size": 20,
+  "common_map": {"name":"name"},
+  "logging": {
+    "level": "DEBUG",
+    "file": "app.log",
+    "console": true
+  },
+  "apis": [
+    {
+      "name": "PokeAPI",
+      "enabled": true,
+      "class_path": "clients.poke_client.PokeAPIClient",
+      "base_url": "https://pokeapi.co/api/v2/pokemon?limit=50",
+      "limit_results":50,
+      "additional_map": {"additional_attribute":"base_experience"},
+      "constant_map":{"origin":"Pokemon"},
+      "raw_path": "output/PokeAPI/raw_data.json",
+      "norm_path": "output/PokeAPI/norm_data.json"
+    },
+    {
+      "name": "SWAPI",
+      "enabled": true,
+      "class_path": "clients.sw_client.SWAPIClient",
+      "base_url": "https://swapi.py4e.com/api/people/",
+      "limit_results":50,
+      "additional_map": {"additional_attribute":"birth_year"},
+      "constant_map":{"origin":"StarWars"},
+      "raw_path": "output/SW/raw_data.json",
+      "norm_path": "output/SW/norm_data.json"
+    },
+    {
+      "name": "RickAndMortyAPI",
+      "enabled": true,
+      "class_path": "clients.rm_client.RickAndMortyClient",
+      "base_url": "https://rickandmortyapi.com/api/character",
+      "limit_results":50,
+      "additional_map": {"species":"species", "additional_attribute":"status"},
+      "constant_map":{"origin":"RickAndMorty"},
+      "raw_path": "output/RM/raw_data.json",
+      "norm_path": "output/RM/norm_data.json"
+    }
+  ]
+}
